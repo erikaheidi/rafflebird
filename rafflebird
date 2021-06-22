@@ -1,0 +1,33 @@
+#!/usr/bin/php
+<?php
+
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Minicli\App;
+use Minicli\Exception\CommandNotFoundException;
+
+$app = new App(require __DIR__ . '/config.php');
+
+$signature = <<<EOD
+             __  __ _      _     _         _  
+            / _|/ _| |    | |   (_)       | | 
+  _ __ __ _| |_| |_| | ___| |__  _ _ __ __| | 
+ | '__/ _` |  _|  _| |/ _ \ '_ \| | '__/ _` | 
+ | | | (_| | | | | | |  __/ |_) | | | | (_| | 
+ |_|  \__,_|_| |_| |_|\___|_.__/|_|_|  \__,_| 
+                                              
+            ./rafflebird help                                 
+EOD;
+
+$app->setSignature($signature);
+
+try {
+    $app->runCommand($argv);
+} catch (CommandNotFoundException $exception) {
+    $app->getPrinter()->error("Error: command not found.");
+}
+

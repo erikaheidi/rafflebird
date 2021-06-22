@@ -1,0 +1,24 @@
+{
+  "name": "erikaheidi/rafflebird",
+  "description": "Rafflebird",
+  "license": "MIT",
+  "homepage": "https://github.com/erikaheidi/rafflebird",
+  "keywords": ["cli","twitter", "command-line"],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "require": {
+    "minicli/minicli": "^2.0",
+    "minicli/curly": "^0.1.2",
+    "minicli/minicache": "^0.2.0",
+    "ext-json": "*",
+    "abraham/twitteroauth": "^2.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@php -r \"file_exists('config.php') || copy('config_sample.php', 'config.php');\""
+    ]
+  }
+}
