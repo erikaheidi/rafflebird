@@ -2,6 +2,8 @@
 
 Rafflebird is a highly experimental CLI application for giveaways / raffles on Twitter, built in PHP with [Minicli](https://github.com/minicli/minicli).
 
+![Rafflebird giveaway for most liked reply on the given tweet](https://user-images.githubusercontent.com/293241/122918814-cf683900-d35f-11eb-974b-126566c3c9e8.png)
+
 _**Disclaimer:** The recent search endpoint available via the Twitter API v2 will not return results older than **1 week**. This application is intended for quick raffles that don't require much setup or data persistence. Just pick a random reply, or the most liked reply, and that's it._
 
 ## Installation
@@ -126,6 +128,8 @@ You can fetch the replies for a tweet with:
 docker-compose exec app php rafflebird fetch replies id=1405904174634651649
 ```
 
+![Fetching replies](https://user-images.githubusercontent.com/293241/122918835-d68f4700-d35f-11eb-9207-b8fa099815ef.png)
+
 To pick a random winner from the participants, run:
 
 ```shell
@@ -137,3 +141,5 @@ To pick the reply with the most likes, run:
 ```shell
 docker-compose exec app php rafflebird pick best id=1405904174634651649
 ```
+
+![Rafflebird giveaway for most liked reply on the given tweet](https://user-images.githubusercontent.com/293241/122918814-cf683900-d35f-11eb-974b-126566c3c9e8.png)
